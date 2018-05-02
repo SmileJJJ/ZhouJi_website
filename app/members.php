@@ -5,6 +5,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class members extends Model
 {
+    protected $table='members';
+
     public $timestamps=true;
 
     public function getDateFormat()
