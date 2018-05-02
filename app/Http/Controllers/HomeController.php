@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\members;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $members=members::paginate(2);
+        return view('home',[
+            'members'=>$members,
+        ]);
     }
+
+    public function member_create()
+    {
+        return view('member_system.member_create');
+    }
+
+
 }
