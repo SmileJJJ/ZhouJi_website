@@ -19,4 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::any('/member_create', 'HomeController@member_create');
+Route::any('/member_save', 'HomeController@member_save');
 

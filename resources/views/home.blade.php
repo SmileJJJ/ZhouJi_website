@@ -9,13 +9,12 @@
             <table class="table table-striped table-hover table-responsive">
                 <thead>
                 <tr>
-                    <th width="20">ID</th>
-                    <th width="80">姓名</th>
-                    <th width="80">性别</th>
-                    <th width="100">出生日期</th>
-                    <th width="120">邮箱</th>
-                    <th width="120">联系方式</th>
-                    <th width="100">添加时间</th>
+                    <th>ID</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>邮箱</th>
+                    <th>联系方式</th>
+                    <th>添加时间</th>
                     <th width="120">操作</th>
                 </tr>
                 </thead>
@@ -25,10 +24,9 @@
                         <th scope="row">{{$member->ID}}</th>
                         <td>{{$member->姓名}}</td>
                         <td>{{$member->性别}}</td>
-                        <td>{{$member->出生日期}}</td>
                         <td>{{$member->邮箱}}</td>
                         <td>{{$member->联系方式}}</td>
-                        <td>{{date('Y-m-d',$member->添加时间)}}</td>
+                        <td>{{date('Y-m-d',$member->created_at)}}</td>
                         <td>
                             <a href="">详情</a>
                             <a href="">修改</a>

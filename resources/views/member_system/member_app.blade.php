@@ -25,7 +25,7 @@
                                 ">成员列表</a>
                         <a href="{{url('member_create')}}" class="list-group-item
                             {{Request::getPathInfo()=='/member_create'?'active':''}}
-                                ">成员学生</a>
+                                ">新增成员</a>
                     </div>
                 @show
             </div>
