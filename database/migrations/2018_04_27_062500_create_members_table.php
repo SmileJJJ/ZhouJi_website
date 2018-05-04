@@ -20,8 +20,8 @@ class CreateMembersTable extends Migration
             $table->string('出生年月日')->default('1996.02.03');
             $table->string('邮箱')->default(123456789);
             $table->string('学历')->default(123456789);
-            $table->integer('身份证')->unsigned()->default(123456789);
-            $table->integer('联系方式')->unsigned(11)->default(123456789);
+            $table->string('身份证',18)->default(123456789);
+            $table->string('联系方式',11)->default(123456789);
             $table->integer('created_at')->default(0);
             $table->integer('updated_at')->default(0);
         });

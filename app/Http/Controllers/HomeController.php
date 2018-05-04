@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\members;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -30,9 +31,41 @@ class HomeController extends Controller
         ]);
     }
 
-    public function member_create()
+    public function member_create(Request $request)
     {
-        return view('member_system.member_create');
+        $member= new members();
+        if($request->isMethod('POST'))
+        {
+            //2.validator类验证
+            $validator=\Validator::make($request->input(),[
+                'members.姓名'=>'required|min:2|max:20',
+            ],[
+                'required'=>':attribute 为必填项',
+                'min'=>':attribute 长度不符合要求',
+                'integer'=>':attribute 必须为整数',
+            ],[
+                'member.姓名'=>'姓名',
+            ]);
+
+            if($validator->fails())
+            {
+                return redirect()->back()->withErrors($validator)->withInput();
+                echo 'aaaaa';
+            }
+
+            $data=$request->input('members');
+            if(members::create($data))
+            {
+                return redirect('home')->with('success','添加成功!');
+            }
+            else
+            {
+                return redirect()->back();
+            }
+        }
+        return view('member_system.member_create',[
+            'member'=>$member,
+        ]);
     }
 
     //保存添加
@@ -49,15 +82,15 @@ class HomeController extends Controller
         $member->身份证=$data['身份证'];
 //        $member->性别=$data['性别'];
 //
-        if($member->save())
-        {
-//            return redirect('home');
-            var_dump($data);
-        }
-        else
-        {
-            return redirect()->back();
-        }
+//        if($member->save())
+//        {
+////            return redirect('home');
+//            var_dump($data);
+//        }
+//        else
+//        {
+//            return redirect()->back();
+//        }
     }
 
 }
