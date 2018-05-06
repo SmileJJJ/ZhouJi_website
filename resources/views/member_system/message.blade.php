@@ -1,3 +1,15 @@
+@if(count($errors))
+    <div class="alert alert-danger">
+        <ul>
+            {{--                @foreach($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach--}}
+            <li>{{$errors->first()}}</li>
+        </ul>
+    </div>
+@endif
+
+
 <!-- 成功提示框 -->
 @if(\Illuminate\Support\Facades\Session::has('success'))
     <div class="alert alert-success alert-dismissible" role="alert">

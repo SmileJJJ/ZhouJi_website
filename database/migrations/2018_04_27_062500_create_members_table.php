@@ -15,7 +15,7 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->increments('ID');
-            $table->string('姓名');
+            $table->string('姓名')->default('nanxi');
             $table->integer('性别')->unsigned()->default(10);
             $table->string('出生年月日')->default('1996.02.03');
             $table->string('邮箱')->default(123456789);

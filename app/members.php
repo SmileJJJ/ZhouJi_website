@@ -11,6 +11,10 @@ class members extends Model
 
     protected $table='members';
 
+    protected $prymarykey='id';
+
+    protected $fillable=['姓名','出生年月日','邮箱','学历','联系方式','身份证','性别'];
+
     public $timestamps=true;
 
     public function getDateFormat()
@@ -38,4 +42,16 @@ class members extends Model
 
         return $arr;
     }
+
+    public function freshTimestamp()
+    {
+        return time();
+    }
+
+    public function fromDateTime($value)
+    {
+        return $value;
+    }
+
+
 }
